@@ -22,7 +22,7 @@ def about():
 
 @app.get('/hello')
 def hello():
-    return render_template('hello.html', name=request.args.get('name'))
+    return render_template('hello.html', firstname=request.args.get('firstname'))
 
 @app.get('/post/<int:post_id>')
 def show_post(post_id):
