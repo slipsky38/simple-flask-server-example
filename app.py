@@ -12,6 +12,9 @@ app = Flask(
 def index():
     return render_template('index.html')
 
+@app.get('/')
+def about():
+    return render_template('about.html', name=request.args.get('about'))
 
 @app.get('/hello')
 def hello():
