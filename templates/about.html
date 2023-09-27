@@ -1,12 +1,8 @@
-<!doctype html>
-<head>
-	<title>Oh Hi There</title>
-	<link href="/static/styles.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-    {% if location %}
-	<h1>Hello, {{ location}}</h1>
-    {% else %}
-    <h1>Anonymous, are we??</h1>
-    {% endif %}
-</body>
+{% extends "base.html" %}
+{% block title %}About Us {% endblock %}
+{% block content %}
+	<h1>About Us</h1>
+    <p>
+        Welcome to your first Flask website
+    </p>
+{% endblock %}
