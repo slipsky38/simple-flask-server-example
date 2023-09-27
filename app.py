@@ -2,18 +2,24 @@ from flask import Flask, render_template, request
 
 # Create a flask app
 app = Flask(
-  __name__,
-  template_folder='templates',
-  static_folder='static'
+    __name__,
+    template_folder='templates',
+    static_folder='static'
 )
+
 
 @app.get('/')
 def index():
-  return render_template('index.html')
+    return render_template('index.html')
+
 
 @app.get('/hello')
 def hello():
-  return render_template('hello.html', name=request.args.get('name'))
+    return render_template('hello.html', name=request.args.get('name'))
+
+@app.get('/post/<int:post_id>')
+def show_post(post_id):
+    return f'Post {post_id}'
 
 @app.errorhandler(404)
 def handle_404(e):
@@ -21,5 +27,5 @@ def handle_404(e):
 
 
 if __name__ == '__main__':
-  # Run the Flask app
-  app.run(host='0.0.0.0', debug=True, port=8080)
+    # Run the Flask app
+    app.run(host='0.0.0.0', debug=True, port=8080)
