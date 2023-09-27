@@ -14,7 +14,7 @@ def index():
 
 @app.get('/about')
 def about():
-    return render_template('about.html', name=request.args.get('location'))
+    return render_template('about.html', location=request.args.get('location'))
 
 @app.get('/hello')
 def hello():
@@ -23,6 +23,13 @@ def hello():
 @app.get('/post/<int:post_id>')
 def show_post(post_id):
     return f'Post {post_id}'
+
+@app.post('/login')
+def process_form():
+    username = request.form.get('username')
+    password = request.form.get('password')
+    # do something very secure with this information
+    return f'Logged in Username: {username}'
 
 @app.errorhandler(404)
 def handle_404(e):
